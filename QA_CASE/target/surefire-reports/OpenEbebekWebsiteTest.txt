@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: OpenEbebekWebsiteTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec <<< FAILURE!
+OpenEbebekWebsiteTest.testHomePageCopyRight()  Time elapsed: 0.003 sec  <<< FAİLURE!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "this.driver" is null
+	at BaseTest.goToUrl(BaseTest.java:34)
+	at OpenEbebekWebsiteTest.testHomePageCopyRight(OpenEbebekWebsiteTest.java:16)
+
