@@ -33,8 +33,8 @@ public class Test_Add_Product_To_Cart extends BaseTest{
      @Order(2)
     public void selectProduct() {
         productDetailPage = new ProductDetailPage(driver);
-        productsPage.selectProduct(1);
-        Assertions.assertTrue(productDetailPage.isOnProductDetailPage(),"Not on a product detail page !");
+        productsPage.selectProduct();
+        //Assertions.assertTrue(productDetailPage.isOnProductDetailPage(),"Not on a product detail page !");
     }
     
      @Test

@@ -1,6 +1,7 @@
 
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -36,7 +37,7 @@ public class BasePage {
     }
      public void enter(By locator)
     {
-        find(locator).click();
+        find(locator).sendKeys(Keys.ENTER);
     }
     public void type(By locator,String text)
     {

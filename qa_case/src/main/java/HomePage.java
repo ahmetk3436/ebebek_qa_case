@@ -16,8 +16,8 @@ class HomePage  extends BasePage{
     
     SearchBox searchBox;
     
-    By cartCount = By.cssSelector("number ng-star-inserted");
-    By cartContainerLocator = By.className("icon-shopping-cart");
+    By cartCount = By.xpath("span[class='mobile-shopping']span[class='number']");
+    By cartContainerLocator = By.cssSelector("#btnShowCart");
     
     public HomePage(WebDriver driver) {
         super(driver);
@@ -30,16 +30,21 @@ class HomePage  extends BasePage{
     }
 
     boolean isProductCountUp() {
-        return getCartCount() > 0;
+        return getCartCount();
     }
 
     void goToCart() {
         click(cartContainerLocator);
     }
     
-    private int getCartCount()
+    private boolean getCartCount()
     {
-       String count = find(cartCount).getText();
-       return Integer.parseInt(count);
+      if(driver.findElement(cartCount) != null)
+      {
+          return true;
+      } else {
+          return false;
+      }
+
     }
 }
