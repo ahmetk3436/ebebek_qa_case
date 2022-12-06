@@ -34,24 +34,17 @@ class ProductsPage extends BasePage {
     void selectProduct() {
         List<WebElement> newList = getAllProducts();
         List<WebElement> needDelete = findAll(By.className("btn-buttonload"));
-      //  System.out.println(newList.size());
-       /* for (int i = 0; i < newList.size()-1; i++) {
-            for (int j = 0; j < needDelete.size()-1; j++) {
-                if(newList.get(i) == needDelete.get(j))
-                {
-                    newList.remove(newList.get(i));
-                }
-            }
-
-        }*/
-       // System.out.println(newList.size());
         WebElement element = newList.get(newList.size()-(1+needDelete.size()));
     System.out.println(needDelete.size());
         System.out.println(element.getText());
-        Actions actions = new Actions(driver);
-        actions.moveToElement(element);
-       element.click();
-
+         ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,"+element.getLocation().y+")");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(element.isDisplayed());
+        element.click();
     }
     
     private List<WebElement> getAllProducts() {
