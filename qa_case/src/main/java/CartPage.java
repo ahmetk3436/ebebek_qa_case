@@ -16,6 +16,7 @@ import org.openqa.selenium.WebElement;
  */
 class CartPage extends BasePage{
     By productNameLocator = By.cssSelector("eb-cart-item-list");
+    By completeShoppingLocator = By.id("btnGoToShippingAddress");
     public CartPage(WebDriver driver) {
         super(driver);
     }
@@ -23,7 +24,16 @@ class CartPage extends BasePage{
     boolean checkIfProductAdded() {
         return !getProducts().isEmpty();
     }
-    
+
+    void clickCompleteShopping(){
+        click(completeShoppingLocator);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private List<WebElement> getProducts()
     {
         return findAll(productNameLocator);

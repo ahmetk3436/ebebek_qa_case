@@ -23,6 +23,7 @@ class ProductsPage extends BasePage {
     
     By kasikMamasiSelection = By.cssSelector("#btnCategoryFilter");
     By productNameLocator = By.cssSelector("eb-product-list-item");
+    static String productName = "";
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
@@ -43,6 +44,7 @@ class ProductsPage extends BasePage {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        productName = element.getText();
         System.out.println(element.isDisplayed());
         element.click();
     }
